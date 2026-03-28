@@ -1,6 +1,15 @@
 name: CICD
 on: 
   workflow_dispatch:
+    inputs:
+      environments:
+        description: This is the environment for testing only
+        default: 'dev'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
 
 jobs:
   code:
