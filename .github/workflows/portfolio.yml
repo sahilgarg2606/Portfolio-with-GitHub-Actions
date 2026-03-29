@@ -1,0 +1,30 @@
+name: Portfolio
+on:
+    push:
+        branches: 
+            - main
+    workflow_dispatch:
+        inputs:
+            environments:
+                description: this is the environment
+                default: 'dev'
+                required: true
+                type: choice
+                option:
+                    - dev
+                    - prod
+jobs:
+    deploy:
+        runs-on: ubuntu:latest
+        steps: 
+            - name: code checkout
+              uses: action/checkout@v4
+
+            - name: Configure GitHub Pages
+              uses: actions/configure-pages@v4
+            
+            - name: Upload static files as artifact
+              uses: actions/upload-pages-artifact@v3 
+
+            - name: deploy the static website
+              uses: actions/deploy-pages@v4

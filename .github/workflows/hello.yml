@@ -1,11 +1,7 @@
 #this is workflow name
 name: Hello
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '**.txt'
+  workflow_dispatch:
 #these are jobs Inside the 
 jobs:
 #name of job

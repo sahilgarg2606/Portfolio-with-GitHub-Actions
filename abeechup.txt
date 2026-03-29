@@ -1,8 +1,0 @@
-hello
-
-
-<<<<<<< Updated upstream
-world
-=======
-this is my important code 
->>>>>>> Stashed changes
