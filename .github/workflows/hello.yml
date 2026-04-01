@@ -1,20 +1,15 @@
-#this is workflow name
-name: Hello
+name: hello
 on:
-  workflow_dispatch:
-#these are jobs Inside the 
+  push:
+    branches:
+      - main
 jobs:
-#name of job
-  greets: 
-      runs-on: ubuntu-latest
-      steps:
-        - name: Say hello to user
-          run: echo "Hello World"
+  greets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the code
+        run: actions/checkout@v4
 
-        - name: Say hello to user
-          run: echo "hello $USER"
-  details:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Tells version of docker and python
-          run: docker --version && git --version
+      - name: merging the code
+        run: echo "Hello from github actions"
+        
